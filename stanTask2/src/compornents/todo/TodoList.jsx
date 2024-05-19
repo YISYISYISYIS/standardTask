@@ -1,9 +1,16 @@
 import TodoItem from "./TodoItem";
 
-const TodoList = () => {
+const TodoList = ({ setTodos, title, todos }) => {
   return (
     <div>
-      <TodoItem />
+      <h2>{title}</h2>
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            <TodoItem setTodos={setTodos} todo={todo} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
